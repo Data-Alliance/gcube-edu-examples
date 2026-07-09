@@ -31,7 +31,7 @@
 
 PyTorch 2.11 (CUDA 13.0) 기반이며, 강화학습 실습에 필요한 패키지가 미리 설치되어 있습니다.
 
-이 예제는 `public.ecr.aws/g3x5o1w3/gcube/edu/rl-pytorch:20260619` 이미지 기준입니다.
+이 예제는 `ghcr.io/data-alliance/edu-rl-pytorch:20260619` 이미지 기준입니다.
 
 **기준일:** 2026-06-19
 

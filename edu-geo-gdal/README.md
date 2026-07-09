@@ -30,7 +30,7 @@
 
 PyTorch 2.11 (CUDA 13.0) 기반이며, 지리공간 분석에 필요한 패키지가 미리 설치되어 있습니다. (rasterio가 GDAL을 wheel에 번들로 포함합니다.)
 
-이 예제는 `public.ecr.aws/g3x5o1w3/gcube/edu/geo-gdal:20260619` 이미지 기준입니다.
+이 예제는 `ghcr.io/data-alliance/edu-geo-gdal:20260619` 이미지 기준입니다.
 
 **기준일:** 2026-06-19
 
