@@ -13,6 +13,7 @@
 | PyTorch 템플릿 9종 | `torch2.11-cuda13.0` | `torch2.11-cuda12.8` |
 
 - 이미지 주소 형식은 `ghcr.io/data-alliance/<템플릿>:<태그>`입니다. 예: `ghcr.io/data-alliance/edu-cv-pytorch:torch2.11-cuda12.8`
+- 같은 이미지가 Docker Hub [`gcubeai`](https://hub.docker.com/u/gcubeai)에도 같은 이름·태그로 있습니다. 예: `gcubeai/edu-cv-pytorch:torch2.11-cuda12.8`
 - PyTorch 템플릿 9종: edu-cv-pytorch, edu-nlp-hf, edu-rl-pytorch, edu-genai-sd, edu-llm-train, edu-audio-pytorch, edu-medical-monai, edu-geo-gdal, edu-gnn-pyg
 - 같은 템플릿이라면 CUDA 버전과 관계없이 **패키지 버전은 동일**하므로, 어떤 태그를 사용해도 같은 노트북을 그대로 실행할 수 있습니다.
 - `latest` 태그는 가장 최신 조합을 가리키며, 새 조합이 나오면 옮겨질 수 있습니다. 실습 환경을 일정하게 유지하려면 `latest` 대신 위 태그를 사용하세요.

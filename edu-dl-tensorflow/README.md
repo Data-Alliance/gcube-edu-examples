@@ -34,7 +34,7 @@ TensorFlow 2.17 (CUDA 12.8) 기반이며, 딥러닝 실습에 필요한 패키�
 
 이 예제는 `ghcr.io/data-alliance/edu-dl-tensorflow:tf2.17-cuda12.8` 이미지 기준입니다. 태그 선택과 버전 고정에 대한 안내는 [VERSIONS.md](../VERSIONS.md)를 참고하세요.
 
-**기준일:** 2026-06-19
+**기준일:** 2026-11-10
 
 아래 버전은 해당 이미지 기준 스냅샷입니다. 패키지 버전은 템플릿의 `requirements.txt`로 고정되어 있으며, 현재 설치된 정확한 버전은 컨테이너 터미널에서 `pip show <패키지>`로 확인할 수 있습니다.
 
