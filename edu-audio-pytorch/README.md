@@ -29,17 +29,17 @@
 
 ## 포함 환경
 
-PyTorch 2.11 (CUDA 13.0) 기반이며, 오디오 처리에 필요한 패키지와 시스템 도구(ffmpeg)가 미리 설치되어 있습니다.
+PyTorch 2.11 기반(CUDA 13.0·12.8 이미지 제공)이며, 오디오 처리에 필요한 패키지와 시스템 도구(ffmpeg)가 미리 설치되어 있습니다.
 
-이 예제는 `ghcr.io/data-alliance/edu-audio-pytorch:20260619` 이미지 기준입니다.
+이 예제는 `ghcr.io/data-alliance/edu-audio-pytorch:torch2.11-cuda13.0` 이미지 기준이며, CUDA 12.8 이미지(`:torch2.11-cuda12.8`)도 같은 패키지 버전으로 구성되어 있습니다. 태그 선택과 버전 고정에 대한 안내는 [VERSIONS.md](../VERSIONS.md)를 참고하세요.
 
 **기준일:** 2026-06-19
 
-아래 버전은 해당 이미지 기준 스냅샷입니다. 이미지 재빌드 시 일부 버전이 달라질 수 있으며, 현재 설치된 정확한 버전은 컨테이너 터미널에서 `pip show <패키지>`로 확인할 수 있습니다.
+아래 버전은 해당 이미지 기준 스냅샷입니다. 패키지 버전은 템플릿의 `requirements.txt`로 고정되어 있으며, 현재 설치된 정확한 버전은 컨테이너 터미널에서 `pip show <패키지>`로 확인할 수 있습니다.
 
 | 패키지 | 버전 | 역할 |
 |---|---|---|
-| torchaudio | 2.11.0+cu130 | PyTorch 오디오 처리(변환·I/O) |
+| torchaudio | 2.11.0 (+cu130 / +cu128) | PyTorch 오디오 처리(변환·I/O) |
 | librosa | 0.11.0 | 오디오 분석·특징 추출(스펙트로그램·MFCC 등) |
 | soundfile | 0.14.0 | 오디오 파일 읽기·쓰기 |
 | openai-whisper | 20250625 | 음성 인식(speech-to-text) |
