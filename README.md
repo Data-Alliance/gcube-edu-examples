@@ -1,37 +1,39 @@
 # gcube-edu-examples
 
-gcube EDU 템플릿용 실습 예제 모음입니다. EDU 템플릿 컨테이너로 워크로드를 배포한 뒤 이 저장소를 받으면, 바로 노트북 실습을 시작할 수 있습니다.
+**English** | [한국어](README.ko.md)
 
-11개 EDU 템플릿에 1:1로 대응하는 11개 폴더로 구성되며, 각 폴더는 노트북 3개와 폴더별 안내(README)를 담고 있습니다.
+Lab examples for the gcube EDU templates. Deploy a workload with an EDU template container, get this repository, and you can start the notebook labs right away.
 
-## 사용 방법
+The repository has 11 folders that map 1:1 to the 11 EDU templates. Each folder contains 3 notebooks and its own guide (README).
 
-1. 사용하려는 EDU 템플릿으로 gcube 워크로드를 배포합니다.
-   실습 저장소를 받는 방법은 두 가지입니다.
-- 자동 clone — 환경변수 `GIT_CLONE_REPO`에 이 저장소 주소를 입력하면 워크로드 배포 시 자동으로 받아집니다.
-- 직접 clone — 배포 후 워크로드 컨테이너의 내부 터미널에서 `git clone <repo 주소>`를 실행합니다.
-2. JupyterLab에 접속합니다.
-3. 배포한 템플릿과 같은 이름의 폴더를 열어 `01`부터 순서대로 실행합니다.
+## How to use
 
-각 폴더는 해당 템플릿에 맞는 노트북만 담고 있습니다. 예를 들어 `edu-cv-pytorch` 템플릿을 배포했다면 `edu-cv-pytorch` 폴더를 사용합니다.
+1. Deploy a gcube workload with the EDU template you want to use.
+   There are two ways to get the lab repository.
+- Automatic clone — set the environment variable `GIT_CLONE_REPO` to this repository's URL, and it is cloned automatically when the workload is deployed.
+- Manual clone — after deployment, run `git clone <repo URL>` in the workload container's terminal.
+2. Open JupyterLab.
+3. Open the folder with the same name as the deployed template and run the notebooks in order, starting with `01`.
 
-## 템플릿 목록
+Each folder contains only the notebooks for its template. For example, if you deployed the `edu-cv-pytorch` template, use the `edu-cv-pytorch` folder.
 
-| 폴더 (= 템플릿) | 도메인 | 노트북 주제 |
+## Templates
+
+| Folder (= template) | Domain | Notebook topics |
 |---|---|---|
-| edu-cv-pytorch | 컴퓨터비전 | 이미지 분류(CNN) · 전이학습 · 데이터 증강 |
-| edu-dl-tensorflow | TensorFlow 딥러닝 | 이미지 분류(Keras) · 전이학습 · 과적합 제어 |
-| edu-ml-data | 기초 ML · 데이터분석 | EDA · 회귀 · 분류와 군집화 |
-| edu-nlp-hf | 자연어처리 | pipeline 추론 · 텍스트 분류 파인튜닝 · 임베딩 검색 |
-| edu-rl-pytorch | 강화학습 | gymnasium 기초 · PPO 학습 · 알고리즘 비교 |
-| edu-genai-sd | 생성형 AI | text-to-image · 프롬프트와 파라미터 · img2img |
-| edu-llm-train | LLM 파인튜닝 · RAG | LoRA · QLoRA · RAG(FAISS) |
-| edu-audio-pytorch | 음성 · 오디오 | 오디오 특징(librosa) · 음성인식(Whisper) · 오디오 분류 |
-| edu-medical-monai | 의료영상 | DICOM · NIfTI I/O · MONAI 변환 · UNet 분할 |
-| edu-geo-gdal | 원격탐사 · 지리공간 | 래스터(rasterio) · 벡터(geopandas) · NDVI |
-| edu-gnn-pyg | 그래프 신경망 | 그래프 기초(PyG) · 노드 분류(GCN) · 그래프 분류 |
+| edu-cv-pytorch | Computer vision | Image classification (CNN) · Transfer learning · Data augmentation |
+| edu-dl-tensorflow | Deep learning with TensorFlow | Image classification (Keras) · Transfer learning · Overfitting control |
+| edu-ml-data | Basic ML · Data analysis | EDA · Regression · Classification and clustering |
+| edu-nlp-hf | Natural language processing | pipeline inference · Text classification fine-tuning · Embedding search |
+| edu-rl-pytorch | Reinforcement learning | gymnasium basics · PPO training · Algorithm comparison |
+| edu-genai-sd | Generative AI | text-to-image · Prompts and parameters · img2img |
+| edu-llm-train | LLM fine-tuning · RAG | LoRA · QLoRA · RAG (FAISS) |
+| edu-audio-pytorch | Speech · Audio | Audio features (librosa) · Speech recognition (Whisper) · Audio classification |
+| edu-medical-monai | Medical imaging | DICOM · NIfTI I/O · MONAI transforms · UNet segmentation |
+| edu-geo-gdal | Remote sensing · Geospatial | Raster (rasterio) · Vector (geopandas) · NDVI |
+| edu-gnn-pyg | Graph neural networks | Graph basics (PyG) · Node classification (GCN) · Graph classification |
 
-## 폴더 구조
+## Folder structure
 
 ```
 gcube-edu-examples/
@@ -40,7 +42,7 @@ gcube-edu-examples/
 │  ├─ 02_transfer_learning.ipynb
 │  ├─ 03_data_augmentation.ipynb
 │  └─ README.md
-├─ edu-dl-tensorflow/        # 위와 동일하게 노트북 3개 + README.md
+├─ edu-dl-tensorflow/        # 3 notebooks + README.md, same as above
 ├─ edu-ml-data/
 ├─ edu-nlp-hf/
 ├─ edu-rl-pytorch/
@@ -53,12 +55,12 @@ gcube-edu-examples/
 └─ README.md
 ```
 
-각 폴더의 README에 해당 템플릿의 실습 순서, 권장 GPU 사양, 포함 환경이 정리되어 있습니다.
+Each folder's README describes the lab order, recommended GPU specs, and installed packages for its template.
 
-## 공통 사항
+## Notes
 
-- 모든 노트북은 JupyterLab에서 위에서 아래로 순서대로 실행하도록 구성되어 있습니다.
-- 시각화는 한글 폰트(NanumGothic)를 사용합니다.
-- 템플릿 이미지는 CUDA 버전별 태그로 제공되며, 패키지 버전이 고정되어 있습니다. 태그 선택과 버전 고정에 대한 안내는 [VERSIONS.md](VERSIONS.md)를 참고하세요.
-- 데이터셋·모델은 노트북 실행 시 자동 다운로드되어 `/workspace/.cache`에 저장됩니다. (일부 노트북은 합성 데이터를 사용해 다운로드가 필요 없습니다.)
-- 노트북마다 커널이 따로 실행되며, 실행이 끝나도 커널을 종료하기 전까지 GPU 메모리를 계속 사용합니다. 여러 노트북을 함께 열어두면 GPU 사양(VRAM)에 따라 메모리가 부족해 커널이 종료될 수 있습니다. 특히 `edu-genai-sd`, `edu-llm-train`처럼 큰 모델을 다루는 노트북은 다음 노트북으로 넘어가기 전에 **Kernel → Shut Down Kernel**로 이전 노트북의 커널을 종료하세요. 실행 중인 커널은 왼쪽 사이드바의 **Running Terminals and Kernels**에서 한 번에 확인하고 종료할 수 있습니다.
+- All notebooks are designed to be run top to bottom in JupyterLab.
+- Visualizations use a Korean font (NanumGothic).
+- Template images are provided with a tag per CUDA version, and package versions are pinned. See [VERSIONS.md](VERSIONS.md) for how to choose a tag and how versions are pinned.
+- Datasets and models are downloaded automatically when a notebook runs and are stored in `/workspace/.cache`. (Some notebooks use synthetic data and need no download.)
+- Each notebook runs its own kernel, and the kernel keeps using GPU memory after the run finishes until you shut it down. If you keep several notebooks open, the kernel may die from running out of memory, depending on the GPU spec (VRAM). Especially for notebooks that use large models, such as `edu-genai-sd` and `edu-llm-train`, shut down the previous notebook's kernel with **Kernel → Shut Down Kernel** before moving on to the next notebook. You can view and shut down all running kernels at once in **Running Terminals and Kernels** in the left sidebar.

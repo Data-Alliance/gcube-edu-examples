@@ -1,49 +1,51 @@
-# edu-medical-monai — 의료영상 실습
+# edu-medical-monai — Medical imaging labs
 
-`edu-medical-monai` 컨테이너용 실습 예제입니다. 의료영상 포맷(DICOM·NIfTI) 처리부터 MONAI 전처리·증강, UNet 분할까지 의료영상 딥러닝의 표준 흐름을 다룹니다.
+**English** | [한국어](README.ko.md)
 
-## 실습 순서
+Lab examples for the `edu-medical-monai` container. They cover the standard medical imaging deep learning workflow, from handling medical image formats (DICOM, NIfTI) to MONAI preprocessing and augmentation and UNet segmentation.
 
-번호 순서대로 진행하는 것을 권장합니다.
+## Lab order
 
-| 노트북 | 내용 |
+We recommend going through the notebooks in numbered order.
+
+| Notebook | Description |
 |---|---|
-| `01_medical_image_io.ipynb` | DICOM(pydicom)과 NIfTI(nibabel)로 의료영상을 읽고, 3D 볼륨을 단면으로 시각화하며, SimpleITK로 메타데이터를 확인합니다. |
-| `02_monai_transforms.ipynb` | MONAI transforms로 의료영상을 전처리(강도 정규화 등)하고 증강(뒤집기·회전·잡음)하며, `Compose`로 파이프라인을 구성합니다. |
-| `03_segmentation_unet.ipynb` | MONAI UNet과 DiceLoss로 분할 모델을 학습하고 Dice 점수로 평가합니다. 합성 데이터로 분할 전체 흐름을 경험합니다. |
+| `01_medical_image_io.ipynb` | Read medical images with DICOM (pydicom) and NIfTI (nibabel), visualize 3D volumes as slices, and inspect metadata with SimpleITK. |
+| `02_monai_transforms.ipynb` | Preprocess (intensity normalization, etc.) and augment (flip, rotation, noise) medical images with MONAI transforms, and build a pipeline with `Compose`. |
+| `03_segmentation_unet.ipynb` | Train a segmentation model with MONAI UNet and DiceLoss, and evaluate it with the Dice score. Walk through the full segmentation workflow using synthetic data. |
 
-## 실행 방법
+## How to run
 
-1. `edu-medical-monai` 템플릿으로 워크로드 배포 (GPU VRAM 8GB 이상 권장. 3D 분할은 더 큰 VRAM 필요).
-   실습 github repo를 clone 받아야 하는데, 방법은 두 가지입니다.
-- 자동 clone — 환경변수 `GIT_CLONE_REPO`에 저장소 주소를 입력하면 워크로드 배포 시 자동으로 받아집니다.
-- 직접 clone — 배포 후 워크로드 컨테이너의 내부 터미널에서 `git clone <repo 주소>`를 실행합니다.
-2. JupyterLab에 접속합니다.
-3. `edu-medical-monai` 폴더를 열어 `01`부터 순서대로 실행합니다.
+1. Deploy a workload with the `edu-medical-monai` template (GPU with 8 GB+ VRAM recommended; 3D segmentation needs more VRAM).
+   You need to clone the lab GitHub repo. There are two ways to do this.
+- Automatic clone — set the environment variable `GIT_CLONE_REPO` to the repository URL, and it is cloned automatically when the workload is deployed.
+- Manual clone — after deployment, run `git clone <repo URL>` in the workload container's terminal.
+2. Open JupyterLab.
+3. Open the `edu-medical-monai` folder and run the notebooks in order, starting with `01`.
 
-## 데이터
+## Data
 
-- 01의 DICOM 예제는 pydicom에 내장되어 있습니다.
-- 02·03은 합성 영상·볼륨을 생성하므로 다운로드가 필요 없습니다.
-- 실제 실습에서는 MedNIST, MSD(Spleen·Liver 등) 같은 데이터셋이나 직접 보유한 DICOM/NIfTI를 사용합니다.
+- The DICOM example for 01 is bundled with pydicom.
+- 02 and 03 generate synthetic images and volumes, so no download is needed.
+- In real labs, use datasets such as MedNIST and MSD (Spleen, Liver, etc.), or your own DICOM/NIfTI files.
 
-## 포함 환경
+## Installed packages
 
-PyTorch 2.11 기반(CUDA 13.0·12.8 이미지 제공)이며, 의료영상 처리에 필요한 패키지가 미리 설치되어 있습니다.
+Based on PyTorch 2.11 (CUDA 13.0 and 12.8 images available), with the packages needed for medical image processing preinstalled.
 
-이 예제는 `ghcr.io/data-alliance/edu-medical-monai:torch2.11-cuda13.0` 이미지 기준이며, CUDA 12.8 이미지(`:torch2.11-cuda12.8`)도 같은 패키지 버전으로 구성되어 있습니다. 태그 선택과 버전 고정에 대한 안내는 [VERSIONS.md](../VERSIONS.md)를 참고하세요.
+These examples are based on the `ghcr.io/data-alliance/edu-medical-monai:torch2.11-cuda13.0` image. The CUDA 12.8 image (`:torch2.11-cuda12.8`) has the same package versions. See [VERSIONS.md](../VERSIONS.md) for how to choose a tag and how versions are pinned.
 
-**기준일:** 2026-11-10
+**As of:** 2026-11-10
 
-아래 버전은 해당 이미지 기준 스냅샷입니다. 패키지 버전은 템플릿의 `requirements.txt`로 고정되어 있으며, 현재 설치된 정확한 버전은 컨테이너 터미널에서 `pip show <패키지>`로 확인할 수 있습니다.
+The versions below are a snapshot of this image. Package versions are pinned in the template's `requirements.txt`. Run `pip show <package>` in the container terminal to check the exact installed version.
 
-| 패키지 | 버전 | 역할 |
+| Package | Version | Role |
 |---|---|---|
-| MONAI | 1.6.0 | 의료영상 딥러닝 프레임워크(전처리·증강·UNet 등 모델·손실·지표) |
-| nibabel | 5.4.2 | NIfTI 등 신경영상 포맷 입출력 |
-| pydicom | 3.0.2 | DICOM 파일 읽기·쓰기 |
-| SimpleITK | 2.5.5 | 의료영상 I/O·처리(리샘플링·등록 등) |
-| scikit-image | 0.26.0 | 일반 이미지 처리 |
-| Matplotlib | 3.11.0 | 시각화 (한글 폰트 NanumGothic 포함) |
-| tqdm | 4.68.3 | 진행 상황 표시 |
-| ipywidgets | 8.1.8 | 위젯 기반 진행바·UI 렌더(tqdm 진행바 표시) |
+| MONAI | 1.6.0 | Medical imaging deep learning framework (preprocessing, augmentation, models such as UNet, losses, metrics) |
+| nibabel | 5.4.2 | I/O for neuroimaging formats such as NIfTI |
+| pydicom | 3.0.2 | Reading and writing DICOM files |
+| SimpleITK | 2.5.5 | Medical image I/O and processing (resampling, registration, etc.) |
+| scikit-image | 0.26.0 | General image processing |
+| Matplotlib | 3.11.0 | Visualization (includes the Korean font NanumGothic) |
+| tqdm | 4.68.3 | Progress display |
+| ipywidgets | 8.1.8 | Widget-based progress bars and UI rendering (displays tqdm progress bars) |
