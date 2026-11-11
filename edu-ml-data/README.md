@@ -1,52 +1,54 @@
-# edu-ml-data — 기초 머신러닝·데이터분석 실습
+# edu-ml-data — Basic machine learning and data analysis labs
 
-`edu-ml-data` 컨테이너용 실습 예제입니다. pandas·scikit-learn을 사용해 탐색적 데이터 분석(EDA)부터 회귀, 분류, 군집화까지 머신러닝의 기본 흐름을 다룹니다. 모든 데이터는 scikit-learn 내장 데이터셋이라 별도 다운로드가 필요 없습니다.
+**English** | [한국어](README.ko.md)
 
-## 실습 순서
+Lab examples for the `edu-ml-data` container. Using pandas and scikit-learn, they cover the basic machine learning workflow, from exploratory data analysis (EDA) to regression, classification, and clustering. All data comes from scikit-learn built-in datasets, so no separate download is needed.
 
-번호 순서대로 진행하는 것을 권장합니다.
+## Lab order
 
-| 노트북 | 내용 |
+We recommend going through the notebooks in numbered order.
+
+| Notebook | Description |
 |---|---|
-| `01_eda_visualization.ipynb` | pandas로 데이터를 다루고 seaborn으로 분포·상관관계를 시각화하는 탐색적 데이터 분석(EDA)의 기본기를 익힙니다. (와인 데이터셋) |
-| `02_regression.ipynb` | 선형 회귀로 연속값을 예측하고 R²·RMSE·MAE로 평가합니다. 예측-실제 산점도로 결과를 시각화합니다. (당뇨병 데이터셋) |
-| `03_classification_clustering.ipynb` | 분류(로지스틱 회귀·랜덤 포레스트)와 군집화(K-means + PCA 시각화)를 한 데이터로 비교하며 지도학습과 비지도학습의 차이를 익힙니다. (와인 데이터셋) |
+| `01_eda_visualization.ipynb` | Learn the basics of exploratory data analysis (EDA): handle data with pandas and visualize distributions and correlations with seaborn. (Wine dataset) |
+| `02_regression.ipynb` | Predict continuous values with linear regression and evaluate with R², RMSE, and MAE. Visualize the results with a predicted-vs-actual scatter plot. (Diabetes dataset) |
+| `03_classification_clustering.ipynb` | Compare classification (logistic regression, random forest) and clustering (K-means + PCA visualization) on the same data to learn the difference between supervised and unsupervised learning. (Wine dataset) |
 
-## 실행 방법
+## How to run
 
-1. `edu-ml-data` 템플릿으로 워크로드 배포 (GPU VRAM 8GB 이상 권장).
-   실습 github repo를 clone 받아야 하는데, 방법은 두 가지입니다.
-- 자동 clone — 환경변수 `GIT_CLONE_REPO`에 저장소 주소를 입력하면 워크로드 배포 시 자동으로 받아집니다.
-- 직접 clone — 배포 후 워크로드 컨테이너의 내부 터미널에서 `git clone <repo 주소>`를 실행합니다.
-2. JupyterLab에 접속합니다.
-3. `edu-ml-data` 폴더를 열어 `01`부터 순서대로 실행합니다.
+1. Deploy a workload with the `edu-ml-data` template (GPU with 8 GB+ VRAM recommended).
+   You need to clone the lab GitHub repo. There are two ways to do this.
+- Automatic clone — set the environment variable `GIT_CLONE_REPO` to the repository URL, and it is cloned automatically when the workload is deployed.
+- Manual clone — after deployment, run `git clone <repo URL>` in the workload container's terminal.
+2. Open JupyterLab.
+3. Open the `edu-ml-data` folder and run the notebooks in order, starting with `01`.
 
-## 데이터셋
+## Datasets
 
-- **와인 데이터셋** — 13개 화학 성분으로 와인 종류 3개를 구분 (분류·군집화용).
-- **당뇨병 데이터셋** — 10개 건강 지표로 질병 진행도를 예측 (회귀용).
-- 모두 scikit-learn 내장 데이터셋(`sklearn.datasets`)이라 다운로드 없이 즉시 사용합니다.
+- **Wine dataset** — distinguishes 3 wine types using 13 chemical properties (for classification and clustering).
+- **Diabetes dataset** — predicts disease progression from 10 health indicators (for regression).
+- Both are scikit-learn built-in datasets (`sklearn.datasets`), so they are available immediately without download.
 
-## 포함 환경
+## Installed packages
 
-기초 머신러닝·데이터분석에 필요한 패키지가 미리 설치되어 있습니다. (GPU를 강하게 요구하지 않는 입문용 환경이며, PyTorch·TensorFlow가 필요하면 다른 템플릿을 사용하세요.)
+The packages needed for basic machine learning and data analysis are preinstalled. (This is an introductory environment that does not rely heavily on the GPU. If you need PyTorch or TensorFlow, use another template.)
 
-이 예제는 `ghcr.io/data-alliance/edu-ml-data:ubuntu24.04-cuda13.0` 이미지 기준이며, CUDA 12.8 이미지(`:ubuntu24.04-cuda12.8`)도 같은 패키지 버전으로 구성되어 있습니다. 태그 선택과 버전 고정에 대한 안내는 [VERSIONS.md](../VERSIONS.md)를 참고하세요.
+These examples are based on the `ghcr.io/data-alliance/edu-ml-data:ubuntu24.04-cuda13.0` image. The CUDA 12.8 image (`:ubuntu24.04-cuda12.8`) has the same package versions. See [VERSIONS.md](../VERSIONS.md) for how to choose a tag and how versions are pinned.
 
-**기준일:** 2026-11-10
+**As of:** 2026-11-10
 
-아래 버전은 해당 이미지 기준 스냅샷입니다. 패키지 버전은 템플릿의 `requirements.txt`로 고정되어 있으며, 현재 설치된 정확한 버전은 컨테이너 터미널에서 `pip show <패키지>`로 확인할 수 있습니다.
+The versions below are a snapshot of this image. Package versions are pinned in the template's `requirements.txt`. Run `pip show <package>` in the container terminal to check the exact installed version.
 
-| 패키지 | 버전 | 역할 |
+| Package | Version | Role |
 |---|---|---|
-| NumPy | 2.5.0 | 수치 배열 연산 |
-| pandas | 3.0.3 | 표 형태 데이터 처리·분석 |
-| scikit-learn | 1.9.0 | 머신러닝(회귀·분류·군집화)·전처리·평가, 내장 데이터셋 |
-| SciPy | 1.18.0 | 과학·통계 연산 |
-| statsmodels | 0.14.6 | 통계 모델링·검정 |
-| Matplotlib | 3.11.0 | 시각화 (한글 폰트 NanumGothic 포함) |
-| seaborn | 0.13.2 | 통계 시각화 (히트맵·분포 등) |
-| Plotly | 6.8.0 | 인터랙티브 시각화 |
-| openpyxl | 3.1.5 | 엑셀 파일 입출력 |
-| tqdm | 4.68.3 | 진행 상황 표시 |
-| ipywidgets | 8.1.8 | 위젯 기반 진행바·UI 렌더(tqdm 진행바 표시) |
+| NumPy | 2.5.0 | Numerical array operations |
+| pandas | 3.0.3 | Tabular data processing and analysis |
+| scikit-learn | 1.9.0 | Machine learning (regression, classification, clustering), preprocessing, evaluation, built-in datasets |
+| SciPy | 1.18.0 | Scientific and statistical computing |
+| statsmodels | 0.14.6 | Statistical modeling and testing |
+| Matplotlib | 3.11.0 | Visualization (includes the Korean font NanumGothic) |
+| seaborn | 0.13.2 | Statistical visualization (heatmaps, distributions, etc.) |
+| Plotly | 6.8.0 | Interactive visualization |
+| openpyxl | 3.1.5 | Excel file I/O |
+| tqdm | 4.68.3 | Progress display |
+| ipywidgets | 8.1.8 | Widget-based progress bars and UI rendering (displays tqdm progress bars) |
